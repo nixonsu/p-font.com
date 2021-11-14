@@ -1,3 +1,5 @@
+<!-- Preload static content for use -->
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,11 +20,11 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="{{ url_for('static', filename='styles.css') }}"
+      href="{% static 'editor/styles.css' %}"
     />
 
     <!-- JS -->
-    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+    <script src="{% static 'editor/script.js' %}" defer></script>
   </head>
   <body>
     <!-- SIDE BAR -->
@@ -219,13 +221,13 @@
         <button id="info-button">
           <img
             id="info-icon-black"
-            src="{{ url_for('static', filename='images/infoicon-black.png') }}"
+            src="{% static 'editor/images/infoicon-black.png' %}"
             alt=""
           />
           <img
             class="hide"
             id="info-icon-white"
-            src="{{ url_for('static', filename='images/infoicon-white.png') }}"
+            src="{% static 'editor/images/infoicon-white.png' %}"
             alt=""
           />
         </button>
