@@ -4,9 +4,258 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+
+    <!-- FONT AWESOME API -->
+    <script
+      src="https://kit.fontawesome.com/fe3889e50c.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- TITLE -->
+    <title>Pont</title>
+
+    <!-- CSS -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+
+    <!-- JS -->
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
   </head>
   <body>
-    <h1>hi!</h1>
+    <!-- SIDE BAR -->
+    <div class="flex-column" id="sidebar">
+      <div class="description flex-column">
+        <!-- TYPE WRITE EFFECT -->
+        <h1
+          class="typewrite"
+          data-speed="100"
+          data-type='[ "pont", "personality font" ]'
+        >
+          <span></span>
+        </h1>
+        <p>
+          Pont is a portmanteau of the two words personality and font. It is
+          very loosely based off graphology, following the changes of different
+          handwriting traits in the form of a sans serif typeface.
+        </p>
+      </div>
+
+      <div class="flex-column" id="interactive-container">
+        <button id="restart-button">Restart</button>
+
+        <div class="flex-column" id="sliders-container">
+          <div class="flex-column slider-label-container">
+            <div class="flex-row label-container">
+              <span>Introvert</span>
+              <span>Extrovert</span>
+            </div>
+            <!-- FONT SIZE SLIDER -->
+            <div class="slider-container">
+              <input
+                type="range"
+                min="20"
+                max="300"
+                value="160"
+                class="slider"
+                id="font-size"
+                name="font-size"
+                data-slider-index="0"
+              />
+            </div>
+          </div>
+          <div class="flex-column slider-label-container">
+            <div class="flex-row label-container">
+              <span>Dependent</span>
+              <span>Independent</span>
+            </div>
+            <!-- WORD SPACING SLIDER -->
+            <div class="slider-container">
+              <input
+                type="range"
+                min="-30"
+                max="100"
+                value="35"
+                class="slider"
+                id="word-spacing"
+                name="word-spacing"
+                data-slider-index="1"
+              />
+            </div>
+          </div>
+
+          <div class="flex-column slider-label-container">
+            <div class="flex-row label-container">
+              <span>Creative</span>
+              <span>Logical</span>
+            </div>
+            <!-- CHNG FONT SLIDER -->
+            <div class="slider-container">
+              <input
+                type="range"
+                min="0"
+                max="2000"
+                value="1000"
+                class="slider"
+                id="CHNG"
+                name="CHNG"
+                data-slider-index="2"
+              />
+            </div>
+          </div>
+
+          <div class="flex-column slider-label-container">
+            <div class="flex-row label-container">
+              <span>Reserved</span>
+              <span>Expressive</span>
+            </div>
+            <!-- CHGI FONT SLIDER -->
+            <div class="slider-container">
+              <input
+                type="range"
+                min="0"
+                max="2000"
+                value="1000"
+                class="slider"
+                id="CHGI"
+                name="CHGI"
+                data-slider-index="3"
+              />
+            </div>
+          </div>
+
+          <div class="flex-column slider-label-container">
+            <div class="flex-row label-container">
+              <span>Mischievous</span>
+              <span>Solemn</span>
+            </div>
+            <!-- CHGT FONT SLIDER -->
+            <div class="slider-container">
+              <input
+                type="range"
+                min="0"
+                max="2000"
+                value="1000"
+                class="slider"
+                id="CHGT"
+                name="CHGT"
+                data-slider-index="4"
+              />
+            </div>
+          </div>
+
+          <div class="flex-column slider-label-container">
+            <div class="flex-row label-container">
+              <span>Ambitious</span>
+              <span>Easy-going</span>
+            </div>
+            <!-- CHGE FONT SLIDER -->
+            <div class="slider-container">
+              <input
+                type="range"
+                min="0"
+                max="2000"
+                value="1000"
+                class="slider"
+                id="CHGE"
+                name="CHGE"
+                data-slider-index="5"
+              />
+            </div>
+          </div>
+
+          <div class="flex-column slider-label-container">
+            <div class="flex-row label-container">
+              <span>Inquisitive</span>
+              <span>Apathetic</span>
+            </div>
+            <!-- CHGS FONT SLIDER -->
+            <div class="slider-container">
+              <input
+                type="range"
+                min="0"
+                max="2000"
+                value="1000"
+                class="slider"
+                id="CHGS"
+                name="CHGS"
+                data-slider-index="6"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="button-wrapper flex-row">
+          <button id="get-results-button">Results</button>
+          <!-- <button id="generate-font-button">
+            <i class="fa fa-download" aria-hidden="true"></i>
+          </button> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT SECTION -->
+    <div class="flex-column" id="right-side">
+      <!-- TEXTBOX CONTAINER -->
+      <div class="textbox-container">
+        <div
+          id="textbox"
+          contenteditable="true"
+          data-gramm="false"
+          data-gramm_editor="false"
+          data-enable-grammarly="false"
+          spellcheck="false"
+          autofocus
+        >
+          ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
+        </div>
+      </div>
+
+      <!-- FOOTER -->
+      <div class="flex-row-reverse" id="bottom-bar">
+        <div id="theme-button"></div>
+        <button id="info-button">
+          <img
+            id="info-icon-black"
+            src="{{ url_for('static', filename='images/infoicon-black.png') }}"
+            alt=""
+          />
+          <img
+            class="hide"
+            id="info-icon-white"
+            src="{{ url_for('static', filename='images/infoicon-white.png') }}"
+            alt=""
+          />
+        </button>
+      </div>
+    </div>
+
+    <div id="modal" class="flex-column hide">
+      <div class="close-button"></div>
+      <h1>Pont</h1>
+      <p>
+        Graphology is the analysis of handwriting to determine an individual's
+        character and personality. During our childhood, we were all taught to
+        write the same letters the same way, but it is evident that no one
+        continues to write exactly the same. As everyone grows up, people
+        gradually alter the shape and sizes of their letters according to their
+        personal preferences. <br />
+        <br />
+        Pont was created and inspired by these individualised traits that are
+        used to read a person's characteristics and personality. It begins with
+        a sans serif font which then morphs to best suit you !
+        <br />
+        <br />
+        Check out my other work
+        <a href="https://www.jessica-la.com" target="_blank">here.</a>
+
+        <br />
+        <br />
+        Disclaimer: Please be mindful that these results do not determine your
+        true traits !
+      </p>
+    </div>
   </body>
 </html>

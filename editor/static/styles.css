@@ -1,0 +1,299 @@
+@font-face {
+  font-family: "Pont";
+  src: url("fonts/Pont.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Pont-Re";
+  src: url("fonts/Pont-Re.otf") format("opentype");
+}
+
+/* VARIABLES  */
+:root {
+  --word-spacing: 35px;
+  --font-size: 160px;
+  --CHNG: 1000;
+  --CHGI: 1000;
+  --CHGT: 1000;
+  --CHGE: 1000;
+  --CHGS: 1000;
+  --bg-color: var(--light-theme);
+  --text-color: black;
+  --padding: 12px;
+  --dark-theme: #181818;
+  --light-theme: #ecedeb;
+}
+
+/* Highlight Select Colour */
+::selection {
+  background: rgb(136, 136, 136);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Pont", "Pont-Re";
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  gap: 12px;
+  padding: var(--padding);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.1s;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-row-reverse {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* SIDEBAR */
+#sidebar {
+  width: 20%;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.description {
+  gap: 10px;
+  border: solid 3px;
+  padding: var(--padding);
+  align-self: stretch;
+  margin-right: none;
+  line-height: 1.1;
+}
+
+.button-wrapper {
+  gap: 5px;
+  align-content: center;
+  align-self: stretch;
+}
+
+#get-results-button {
+  flex: 8;
+}
+
+#generate-font-button {
+  flex: 1;
+}
+
+#right-side {
+  border: solid 3px;
+  flex: 1;
+}
+
+.textbox-container {
+  /* Establishes relative position for child textbox element */
+  position: relative;
+  flex: 1;
+}
+
+#textbox {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  font-family: "Pont";
+  word-spacing: var(--word-spacing);
+  font-size: var(--font-size);
+  font-variation-settings: "CHNG" var(--CHNG), "CHGI" var(--CHGI),
+    "CHGT" var(--CHGT), "CHGE" var(--CHGE), "CHGS" var(--CHGS);
+  line-height: 1;
+  overflow: auto;
+  padding-left: 12px;
+  padding-top: 12px;
+}
+
+#textbox:focus {
+  outline: none;
+}
+
+#bottom-bar {
+  position: relative;
+  align-items: center;
+  gap: 10px;
+}
+
+/* SLIDERS */
+#interactive-container {
+  border: solid 3px;
+  padding: 20px;
+  flex: 1;
+  gap: 12px;
+  align-self: stretch;
+}
+
+#restart-button,
+#generate-font-button,
+#get-results-button {
+  cursor: pointer;
+  padding: 10px;
+  background-color: var(--text-color);
+  color: var(--bg-color);
+  border: none;
+  font-size: 16px;
+}
+
+.label-container {
+  justify-content: space-between;
+}
+
+#sliders-container {
+  gap: 10px;
+  flex: 1;
+  justify-content: space-evenly;
+}
+
+.slider-label-container {
+  gap: 5px;
+}
+
+.slider-container {
+  margin-top: -10px;
+  background-color: transparent;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 2px;
+  border-radius: 0.25rem;
+  background: var(--text-color);
+  color: var(--text-color);
+  outline: none;
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  background: var(--text-color);
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  background: var(--text-color);
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb:active {
+  cursor: -webkit-grabbing;
+}
+
+.slider::-moz-range-thumb:active {
+  cursor: -moz-grabbing;
+}
+
+#theme-button {
+  height: 40px;
+  width: 40px;
+  background: var(--text-color);
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+
+#info-button {
+  width: 30px;
+  font-size: 34px;
+  color: var(--text-color);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+#modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  padding: 20px 30px;
+
+  border: solid 3px;
+  height: 70%;
+  width: 30%;
+  gap: 8px;
+}
+
+#modal a {
+  text-decoration: none;
+}
+
+.close-button {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  background-color: var(--text-color);
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
+}
+
+#info-icon-black,
+#info-icon-white {
+  height: 25px;
+  width: auto;
+  vertical-align: middle;
+}
+
+h1 {
+  height: 32px;
+}
+/* Blinking Cursor */
+h1 span {
+  height: 32px;
+  margin-bottom: -4px;
+  width: 2px;
+  background: var(--text-color);
+  opacity: 0;
+  display: inline-block;
+  animation: blink 0.5s linear infinite alternate;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--text-color);
+}
