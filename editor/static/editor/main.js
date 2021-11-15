@@ -116,7 +116,7 @@ getResultsButton.addEventListener("click", async () => {
   console.log(fontobj);
 
   try {
-    let response = await fetch("/results", {
+    let response = await fetch("/results/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(fontobj),
