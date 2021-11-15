@@ -14,16 +14,8 @@
   }
 }
 
-
 /* VARIABLES  */
 :root {
-  --word-spacing: {{ fontobj['word-spacing']['value'] }};
-  --font-size: {{ fontobj['font-size']['value'] }};
-  --CHNG: {{ fontobj['CHNG']['value'] }};
-  --CHGI: {{ fontobj['CHGI']['value'] }};
-  --CHGT: {{ fontobj['CHGT']['value'] }};
-  --CHGE: {{ fontobj['CHGE']['value'] }};
-  --CHGS: {{ fontobj['CHGS']['value'] }};
   --bg-color: var(--light-theme);
   --text-color: black;
   --padding: 12px;
@@ -128,48 +120,6 @@ body {
   height: 20px;
   border: 3px solid black;
   align-self: center;
-}
-
-.font-size {
-  height: 100%;
-  width: {{ fontobj['font-size']['percentage'] }}%;
-  background-color: black;
-}
-
-.word-spacing {
-  height: 100%;
-  width: {{ fontobj['word-spacing']['percentage'] }}%;
-  background-color: black;
-}
-
-.CHNG {
-  height: 100%;
-  width: {{ fontobj['CHNG']['percentage'] }}%;
-  background-color: black;
-}
-
-.CHGI {
-  height: 100%;
-  width: {{ fontobj['CHGI']['percentage'] }}%;
-  background-color: black;
-}
-
-.CHGT {
-  height: 100%;
-  width: {{ fontobj['CHGT']['percentage'] }}%;
-  background-color: black;
-}
-
-.CHGE {
-  height: 100%;
-  width: {{ fontobj['CHGE']['percentage'] }}%;
-  background-color: black;
-}
-
-.CHGS {
-  height: 100%;
-  width: {{ fontobj['CHGS']['percentage'] }}%;
-  background-color: black;
 }
 
 .text-left,
