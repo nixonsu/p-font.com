@@ -4,23 +4,10 @@ const restartButton = document.getElementById("restart-button");
 const defaultSliderValues = [160, 35, 1000, 1000, 1000, 1000, 1000];
 
 // Onload -> set slider values to default
-window.addEventListener("load", () => {
-  sliders.forEach((slider) => {
-    const sliderIndex = slider.getAttribute("data-slider-index");
-    slider.value = defaultSliderValues[sliderIndex];
-    if (sliderIndex <= 1) {
-      root.style.setProperty(
-        `--${slider.id}`,
-        `${defaultSliderValues[sliderIndex]}px`
-      );
-    } else {
-      root.style.setProperty(
-        `--${slider.id}`,
-        `${defaultSliderValues[sliderIndex]}`
-      );
-    }
-  });
-});
+window.addEventListener("load", setDefaultSliderValues);
+
+// Restart Button -> set all slider values to default
+restartButton.addEventListener("click", setDefaultSliderValues);
 
 // Sliders -> reflect slider values in CSS
 sliders.forEach((slider) => {
@@ -35,8 +22,7 @@ sliders.forEach((slider) => {
   };
 });
 
-// Restart Button -> set all slider values to default
-restartButton.addEventListener("click", () => {
+function setDefaultSliderValues() {
   sliders.forEach((slider) => {
     const sliderIndex = slider.getAttribute("data-slider-index");
     slider.value = defaultSliderValues[sliderIndex];
@@ -52,6 +38,36 @@ restartButton.addEventListener("click", () => {
       );
     }
   });
+}
+
+// Dark/Light Mode Button -> sets CSS text/background colour properties
+const darkModeButton = document.getElementById("theme-button");
+const infoIconBlack = document.querySelector("#info-icon-black");
+const infoIconWhite = document.querySelector("#info-icon-white");
+
+darkModeButton.addEventListener("click", () => {
+  infoIconWhite.classList.toggle("hide");
+  infoIconBlack.classList.toggle("hide");
+  root.classList.toggle("dark-mode");
+  if (root.classList.contains("dark-mode")) {
+    root.style.setProperty("--bg-color", "#181818");
+    root.style.setProperty("--text-color", "white");
+  } else if (!root.classList.contains("dark-mode")) {
+    root.style.setProperty("--bg-color", "#ecedeb");
+    root.style.setProperty("--text-color", "black");
+  }
+});
+
+// Information Modal -> displays/hides modal
+const infoButton = document.getElementById("info-button");
+const closeButton = document.querySelector(".close-button");
+const modal = document.getElementById("modal");
+infoButton.addEventListener("click", () => {
+  modal.classList.toggle("hide");
+});
+
+closeButton.addEventListener("click", () => {
+  modal.classList.toggle("hide");
 });
 
 // Get Results Button -> sends POST request to results app
@@ -113,36 +129,6 @@ getResultsButton.addEventListener("click", async () => {
   } catch (error) {
     console.log(error);
   }
-});
-
-// Dark/Light Mode Button -> sets CSS text/background colour properties
-const darkModeButton = document.getElementById("theme-button");
-const infoIconBlack = document.querySelector("#info-icon-black");
-const infoIconWhite = document.querySelector("#info-icon-white");
-
-darkModeButton.addEventListener("click", () => {
-  infoIconWhite.classList.toggle("hide");
-  infoIconBlack.classList.toggle("hide");
-  root.classList.toggle("dark-mode");
-  if (root.classList.contains("dark-mode")) {
-    root.style.setProperty("--bg-color", "#181818");
-    root.style.setProperty("--text-color", "white");
-  } else if (!root.classList.contains("dark-mode")) {
-    root.style.setProperty("--bg-color", "#ecedeb");
-    root.style.setProperty("--text-color", "black");
-  }
-});
-
-// Information Modal -> displays/hides modal
-const infoButton = document.getElementById("info-button");
-const closeButton = document.querySelector(".close-button");
-const modal = document.getElementById("modal");
-infoButton.addEventListener("click", () => {
-  modal.classList.toggle("hide");
-});
-
-closeButton.addEventListener("click", () => {
-  modal.classList.toggle("hide");
 });
 
 // // GET/POST REQUEST FOR GENERATING STATIC FONT
