@@ -79,7 +79,7 @@ getResultsButton.addEventListener("click", async () => {
     if (root.style.getPropertyValue(`--${slider.id}`) === "") {
       let indexOfName = names.indexOf(slider.id);
       // If slider pertains to variable requiring a 'px' suffix
-      if (slider.id === "font-size" || slider.id === "word-spacing") {
+      if (slider.id === "fontSize" || slider.id === "wordSpacing") {
         fontobj[slider.id] = {
           value: `${defaultSliderValues[indexOfName]}px`,
           min: `${slider.min}`,

@@ -10,8 +10,8 @@
 
 /* VARIABLES  */
 :root {
-  --word-spacing: 35px;
-  --font-size: 160px;
+  --wordSpacing: 35px;
+  --fontSize: 160px;
   --CHNG: 1000;
   --CHGI: 1000;
   --CHGT: 1000;
@@ -109,8 +109,8 @@ body {
   height: 100%;
   width: 100%;
   font-family: "Pont";
-  word-spacing: var(--word-spacing);
-  font-size: var(--font-size);
+  word-spacing: var(--wordSpacing);
+  font-size: var(--fontSize);
   font-variation-settings: "CHNG" var(--CHNG), "CHGI" var(--CHGI),
     "CHGT" var(--CHGT), "CHGE" var(--CHGE), "CHGS" var(--CHGS);
   line-height: 1;
