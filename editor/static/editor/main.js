@@ -122,9 +122,8 @@ getResultsButton.addEventListener("click", async () => {
       body: JSON.stringify(fontobj),
     });
 
-    if (response.ok) {
-      window.open("/results", "_blank");
-      return "ok";
+    if (response.redirected) {
+      window.open(response.url, "_blank");
     }
   } catch (error) {
     console.log(error);
