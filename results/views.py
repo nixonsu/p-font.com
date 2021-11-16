@@ -1,14 +1,24 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views.decorators.csrf import csrf_exempt
 import json
+import logging
+
+logging.basicConfig(level = logging.INFO)
+logger = logging.getLogger(__name__)
+
 
 # Create your views here.
 @csrf_exempt
 def index(request):
   if request.method == "POST":
-    data = json.loads(request.body)
-    print(data)
-    return HttpResponse(status=200)
+    content = json.loads(request.body)
+    # Store data in current user session
+    request.session['data'] = content
+    return redirect(request.path)
 
-  return render(request, 'results/index.html', data)
+  if request.method == "GET":
+    # Retreive data from current user session
+    data = request.session.get('data', False)
+    
+    return render(request, 'results/index.html', data)
