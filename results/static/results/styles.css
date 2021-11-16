@@ -10,7 +10,7 @@
 
 @media print {
   .entire-bar * {
-      -webkit-print-color-adjust: exact; 
+    -webkit-print-color-adjust: exact;
   }
 }
 
@@ -77,8 +77,8 @@ body {
   height: 100%;
   width: 100%;
   font-family: "Pont", "Pont-Re";
-  word-spacing: var(--word-spacing);
-  font-size: var(--font-size);
+  word-spacing: var(--wordSpacing);
+  font-size: var(--fontSize);
   font-variation-settings: "CHNG" var(--CHNG), "CHGI" var(--CHGI),
     "CHGT" var(--CHGT), "CHGE" var(--CHGE), "CHGS" var(--CHGS);
   overflow: auto;
@@ -144,4 +144,3 @@ body {
 ::-webkit-scrollbar-thumb {
   background-color: var(--text-color);
 }
-

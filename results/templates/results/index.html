@@ -1,4 +1,4 @@
-{% load static %}
+{% load static %} {% load mathfilters %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,54 +15,54 @@
     />
     <style>
       :root {
-        --word-spacing: {{ fontobj['word-spacing']['value'] }};
-        --font-size: {{ fontobj['font-size']['value'] }};
-        --CHNG: {{ fontobj['CHNG']['value'] }};
-        --CHGI: {{ fontobj['CHGI']['value'] }};
-        --CHGT: {{ fontobj['CHGT']['value'] }};
-        --CHGE: {{ fontobj['CHGE']['value'] }};
-        --CHGS: {{ fontobj['CHGS']['value'] }};
+        --wordSpacing: {{ wordSpacing.value }};
+        --fontSize: {{ fontSize.value }};
+        --CHNG: {{ CHNG.value }};
+        --CHGI: {{ CHGI.value }};
+        --CHGT: {{ CHGT.value }};
+        --CHGE: {{ CHGE.value }};
+        --CHGS: {{ CHGS.value }};
       }
 
       .font-size {
         height: 100%;
-        width: {{ fontobj['font-size']['percentage'] }}%;
+        width: {{ fontSize.percentage }}%;
         background-color: black;
       }
 
       .word-spacing {
         height: 100%;
-        width: {{ fontobj['word-spacing']['percentage'] }}%;
+        width: {{ wordSpacing.percentage }}%;
         background-color: black;
       }
 
       .CHNG {
         height: 100%;
-        width: {{ fontobj['CHNG']['percentage'] }}%;
+        width: {{ CHNG.percentage }}%;
         background-color: black;
       }
 
       .CHGI {
         height: 100%;
-        width: {{ fontobj['CHGI']['percentage'] }}%;
+        width: {{ CHGI.percentage }}%;
         background-color: black;
       }
 
       .CHGT {
         height: 100%;
-        width: {{ fontobj['CHGT']['percentage'] }}%;
+        width: {{ CHGT.percentage }}%;
         background-color: black;
       }
 
       .CHGE {
         height: 100%;
-        width: {{ fontobj['CHGE']['percentage'] }}%;
+        width: {{ CHGE.percentage }}%;
         background-color: black;
       }
 
       .CHGS {
         height: 100%;
-        width: {{ fontobj['CHGS']['percentage'] }}%;
+        width: {{ CHGS.percentage }}%;
         background-color: black;
       }
     </style>
@@ -79,7 +79,7 @@
             data-enable-grammarly="false"
             spellcheck="false"
           >
-            {{ fontobj.content }}
+            {{ content }}
           </div>
         </div>
       </div>
@@ -87,94 +87,88 @@
         <div class="content">
           <div class="bar-label-container">
             <div class="text-left">
-              {{ 100 - ((fontobj['font-size']['percentage'])|int) }}% <br />
+              {{ 100|sub:fontSize.percentage }}% <br />
               Introvert
             </div>
             <div class="entire-bar">
               <div class="font-size"></div>
             </div>
             <div class="text-right">
-              {{ fontobj['font-size']['percentage'] }}% <br />
+              {{ fontSize.percentage }}% <br />
               Extrovert
             </div>
           </div>
 
           <div class="bar-label-container">
             <div class="text-left">
-              {{ 100 - ((fontobj['word-spacing']['percentage'])|int) }}%
+              {{ 100|sub:wordSpacing.percentage }}%
               <br />Dependent
             </div>
             <div class="entire-bar">
               <div class="word-spacing"></div>
             </div>
             <div class="text-right">
-              {{ fontobj['word-spacing']['percentage'] }}%
+              {{ wordSpacing.percentage }}%
               <br />Independent
             </div>
           </div>
 
           <div class="bar-label-container">
             <div class="text-left">
-              {{ 100 - ((fontobj['CHNG']['percentage'])|int) }}% <br />Creative
+              {{ 100|sub:CHNG.percentage }}% <br />Creative
             </div>
             <div class="entire-bar">
               <div class="CHNG"></div>
             </div>
-            <div class="text-right">
-              {{ fontobj['CHNG']['percentage'] }}% <br />Logical
-            </div>
+            <div class="text-right">{{ CHNG.percentage }}% <br />Logical</div>
           </div>
 
           <div class="bar-label-container">
             <div class="text-left">
-              {{ 100 - ((fontobj['CHGI']['percentage'])|int) }}% <br />Reserved
+              {{ 100|sub:CHGI.percentage }}% <br />Reserved
             </div>
             <div class="entire-bar">
               <div class="CHGI"></div>
             </div>
             <div class="text-right">
-              {{ fontobj['CHGI']['percentage'] }}%
+              {{ CHGI.percentage }}%
               <br />Expressive
             </div>
           </div>
 
           <div class="bar-label-container">
             <div class="text-left">
-              {{ 100 - ((fontobj['CHGT']['percentage'])|int) }}%
+              {{ 100|sub:CHGT.percentage }}%
               <br />Mischievous
             </div>
             <div class="entire-bar">
               <div class="CHGT"></div>
             </div>
-            <div class="text-right">
-              {{ fontobj['CHGT']['percentage'] }}% <br />Solemn
-            </div>
+            <div class="text-right">{{ CHGT.percentage }}% <br />Solemn</div>
           </div>
 
           <div class="bar-label-container">
             <div class="text-left">
-              {{ 100 - ((fontobj['CHGE']['percentage'])|int) }}% <br />Ambitious
+              {{ 100|sub:CHGE.percentage }}% <br />Ambitious
             </div>
             <div class="entire-bar">
               <div class="CHGE"></div>
             </div>
             <div class="text-right">
-              {{ fontobj['CHGE']['percentage'] }}%
+              {{ CHGE.percentage }}%
               <br />Easy-going
             </div>
           </div>
 
           <div class="bar-label-container">
             <div class="text-left">
-              {{ 100 - ((fontobj['CHGS']['percentage'])|int) }}%
+              {{ 100|sub:CHGS.percentage }}%
               <br />Inquisitive
             </div>
             <div class="entire-bar">
               <div class="CHGS"></div>
             </div>
-            <div class="text-right">
-              {{ fontobj['CHGS']['percentage'] }}% <br />Apathetic
-            </div>
+            <div class="text-right">{{ CHGS.percentage }}% <br />Apathetic</div>
           </div>
         </div>
       </div>

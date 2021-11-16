@@ -9,5 +9,6 @@ def index(request):
   if request.method == "POST":
     data = json.loads(request.body)
     print(data)
+    return HttpResponse(status=200)
 
   return render(request, 'results/index.html', data)
