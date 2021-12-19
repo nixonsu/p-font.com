@@ -1,4 +1,4 @@
-# P-font.com
+# p-font.com
 Font editor that allows the user to generate their own custom fonts based on personality traits.
 
 ### To-Do List
