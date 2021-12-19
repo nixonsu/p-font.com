@@ -1,5 +1,5 @@
-# pont-django
-Re-implementation of 'Pont' using Django.
+# P-font.com
+Font editor that allows the user to generate their own custom fonts based on personality traits.
 
 ### To-Do List
 - [ ] Remove exclusion of CSFR (cookies)
