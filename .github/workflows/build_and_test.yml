@@ -42,7 +42,7 @@ jobs:
           aws_access_key: ${{ secrets.ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.SECRET_ACCESS_KEY }}
           application_name: p-font
-          environment_name: Pfont-env-1
+          environment_name: Pfont-env
           version_label: "${{ github.sha }}"
           region: "ap-southeast-2"
           deployment_package: deploy.zip
