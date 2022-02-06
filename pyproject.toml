@@ -5,7 +5,7 @@ description = ""
 authors = ["ni-xon <nixonuch_@outlook.com>"]
 
 [tool.poetry.dependencies]
-python = "3.9.4"
+python = "3.8.10"
 Django = "^4.0.2"
 django-mathfilters = "^1.0.0"
 
