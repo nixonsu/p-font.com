@@ -3,7 +3,7 @@
 source /var/app/venv/*/bin/activate
 cd /var/app/staging
 
-chmod a+w db.sqlite3
+sudo chmod a+w db.sqlite3
 python manage.py makemigrations
 python manage.py migrate
 python manage.py createfirstsuperuser
