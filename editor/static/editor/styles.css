@@ -215,6 +215,7 @@ body {
 
 #info-button {
   width: 30px;
+  height: 40px;
   font-size: 34px;
   color: var(--text-color);
   background-color: transparent;
